@@ -48,7 +48,7 @@ namespace Microsoft.BotBuilderSamples
             }
             else
             {
-                await turnContext.SendActivityAsync(MessageFactory.Text("No QnA Maker answers were found."), cancellationToken);
+                await turnContext.SendActivityAsync(MessageFactory.Text("Lo siento Ironhacker! No puedo responderte a esa pregunta, pero me encargaré de que me enseñen pronto."), cancellationToken);
             }
         }
 
