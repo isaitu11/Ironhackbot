@@ -16,7 +16,9 @@ namespace Microsoft.BotBuilderSamples
     {
         private readonly IConfiguration _configuration;
         private readonly ILogger<QnABot> _logger;
-        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly IHttpClientFactory _httpClientFactory; 
+
+        var welcomemessage = true;
 
         public QnABot(IConfiguration configuration, ILogger<QnABot> logger, IHttpClientFactory httpClientFactory)
         {
@@ -41,6 +43,12 @@ namespace Microsoft.BotBuilderSamples
             _logger.LogInformation("Calling QnA Maker");
 
             // The actual call to the QnA Maker service.
+
+            if (welcomemessage == true){
+                 await turnContext.SendActivityAsync(MessageFactory.Text("Bienvenido", cancellationToken);
+                 welcomemessage = false;
+            }
+
             var response = await qnaMaker.GetAnswersAsync(turnContext);
             if (response != null && response.Length > 0)
             {
